@@ -7,12 +7,13 @@ const cookieParser = require('cookie-parser');
 
 const cors = require('cors');
 const logger = require('morgan');
-
 const indexRouter = require('./router/index');
 const postRouter = require('./router/posts');
-
+const engine = require('ejs-mate');
 
 require('dotenv/config');
+
+app.engine('ejs', engine);
 
 app.use(cors());
 app.use(bodyParser.json());

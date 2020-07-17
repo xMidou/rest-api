@@ -18,6 +18,8 @@ app.engine('ejs', engine);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -32,11 +34,11 @@ app.get("/user", (req, res) => {
 
 
 // //Connect To DB
-mongoose.connect(
-    "mongodb+srv://test:BAnYNjg41RkR8F5Y@cluster0-ngxva.mongodb.net/test?retryWrites=true&w=majority",
-    { useUnifiedTopology: true , useNewUrlParser: true},
-    () => {
-    console.log('Connect to DB');
-    })
+// mongoose.connect(
+//     "mongodb+srv://test:BAnYNjg41RkR8F5Y@cluster0-ngxva.mongodb.net/test?retryWrites=true&w=majority",
+//     { useUnifiedTopology: true , useNewUrlParser: true},
+//     () => {
+//     console.log('Connect to DB');
+//     })
 
 app.listen(3000);

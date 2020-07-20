@@ -2,7 +2,11 @@ $("form").submit(function(e){
     e.preventDefault();
     const email = $('#email').val();
     const password = $('#password').val();
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.replace("/");
+    })
+    .catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;

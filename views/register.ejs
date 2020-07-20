@@ -7,6 +7,10 @@
 </head>
 <body>
     <form action="/register" method="post">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName">
         <label for="email">Email</label>
         <input type="text" name="email" id="email">
         <label for="password">Password</label>
@@ -34,7 +38,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script>
-    // Your web app's Firebase configuration
+
+
     const firebaseConfig = {
         apiKey: "AIzaSyAO0DngcVLBLaaDdWnBlHm05FMx3dOQbRE",
         authDomain: "ttcn-21561.firebaseapp.com",
@@ -48,6 +53,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+    const db = firebase.firestore();
     </script>
     <script src="/javascripts/main/register.js"></script>
 </html>

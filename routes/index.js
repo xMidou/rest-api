@@ -3,8 +3,15 @@ var router = express.Router();
 
 /* GET home page. */
 
+
 router.get('/', (req, res) => {
   res.render('app/client/index');
+})
+router.get('/login', (req, res) => {
+  res.render('app/client/login');
+})
+router.get('/register', (req, res) => {
+  res.render('app/client/register');
 })
 router.get('/about', (req, res) => {
   res.render('app/client/about');
@@ -24,6 +31,7 @@ router.get('/apartment', (req, res) => {
 router.get('/detail', (req, res) => {
   res.render('app/client/apartment-detail');
 })
+
 
 
 module.exports = router;

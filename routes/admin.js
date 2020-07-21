@@ -3,8 +3,9 @@ var router = express.Router();
 
 /* GET users listing. */
 
-// router.get('/', (req, res) => {
-//   res.render('app/client', {title : 'index'})
-// });
+router.get('/login', (req, res) => {
+    res.render('app/admin/category/login');
+    
+  })
 
 module.exports = router;

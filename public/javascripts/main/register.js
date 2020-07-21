@@ -43,7 +43,6 @@ $("form").submit(function(e){
         } else {
           alert(errorMessage);
         }
-        
     });
     alert('good')
 });

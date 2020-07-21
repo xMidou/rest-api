@@ -7,8 +7,6 @@ const cookieParser = require('cookie-parser');
 
 const cors = require('cors');
 const logger = require('morgan');
-const indexRouter = require('./router/index');
-const postRouter = require('./router/posts');
 const engine = require('ejs-mate');
 
 require('dotenv/config');
@@ -25,8 +23,12 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
+const indexRouter = require('./router/index');
+const postRouter = require('./router/posts');
+const adminRouter = require('./router/admin');
 app.use('/', indexRouter);
 app.use('/posts', postRouter);
+app.use('/admin', adminRouter);
 app.get("/user", (req, res) => {
     // res.render("user", { title: "Profile", userProfile: { nickname: "Auth0" } });
 });

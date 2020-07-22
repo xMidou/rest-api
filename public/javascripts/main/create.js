@@ -19,6 +19,6 @@ $("form").submit(function(e){
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
-    window.location.replace("/login");
+    // window.location.replace("/login");
     alert('good')
 });

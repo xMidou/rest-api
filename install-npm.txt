@@ -1,0 +1,6 @@
+npm install ejs-mate --save
+npm install ejs-locals 
+npm install express-ejs-layouts
+npm install ejs
+npm install morgan
+npm install cookie-parser

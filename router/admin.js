@@ -41,5 +41,12 @@ router.post('/register', (req, res) => {
   console.log(req.body);
   res.redirect('/register');
 })
-
+// Create
+router.get('/create', (req, res) => {
+  res.render('app/admin/create');
+})
+// Read
+router.get('/read', (req, res) => {
+  res.render('app/admin/read');
+})
 module.exports = router;

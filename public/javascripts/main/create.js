@@ -1,17 +1,25 @@
 $("form").submit(function(e){
     e.preventDefault();
-    const firstName = $('#firstName').val();
-    const lastName = $('#lastName').val();
-    const email = $('#email').val();
-    const password = $('#password').val();
-    const rePassword = $('#rePassword').val();
-    const phoneNumber = $('#phoneNumber').val();
+    const title = $('#title').val();
+    const price = $('#price').val();
+    const description = $('#description').val();
+    const images = $('#img').prop('files');
+    const metadata = {
+        contentType: image.type,
+    }
+    let url = []
+    for(let i = 0; i < images.length; i++) {
+        const name = new Date() + '-' + title + '-' + i;
+        storageRef.child(name).put(images[i], metadata)
+        url.push(name)
+    }
+    console.log(url)
+    
     db.collection("posts").add({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        phoneNumber: phoneNumber,
+        title,
+        price,
+        description,
+        url,
     })
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -19,6 +27,5 @@ $("form").submit(function(e){
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
-    // window.location.replace("/login");
     alert('good')
 });

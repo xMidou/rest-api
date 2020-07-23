@@ -7,18 +7,15 @@
 </head>
 <body>
     <form action="/register" method="post">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName">
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" id="lastName">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        <label for="password">Password</label>
-        <input type="text" name="password" id="password">
-        <label for="password">rePassword</label>
-        <input type="text" name="rePassword" id="rePassword">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="text" name="phoneNumber" id="phoneNumber">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+        <label for="price">Price</label>
+        <input type="money" name="price" id="price">
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+        <label for="images">Images</label>
+        <input type="file" id="img" name="img" accept="image/*" multiple>
+        <img id="image"/>
         <button type="">
         <a href="/Login">Login</a>
         </button>
@@ -36,6 +33,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-storage.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script>
 
@@ -54,6 +52,7 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
     const db = firebase.firestore();
+    const storageRef = firebase.storage().ref();
     </script>
     <script src="/javascripts/main/create.js"></script>
 </html>

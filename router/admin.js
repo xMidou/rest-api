@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', (req, res) => {
-  res.render('app/client/index');
+  res.render('app/admin/category/dashboard');
 })
 router.get('/create', (req, res) => {
   res.render('app/admin/create');
@@ -11,28 +11,22 @@ router.get('/create', (req, res) => {
 router.get('/read', (req, res) => {
     res.render('app/admin/read');
   })
-router.get('/about', (req, res) => {
-  res.render('app/client/about');
+router.get('/product', (req, res) => {
+  res.render('app/admin/category/product');
+})
+router.get('/post', (req, res) => {
+  res.render('app/admin/category/post');
 })
 router.get('/contact', (req, res) => {
-  res.render('app/client/contact');
+  res.render('app/admin/category/contact');
 })
-router.get('/news', (req, res) => {
-  res.render('app/client/news');
-})
-router.get('/single', (req, res) => {
-  res.render('app/client/single');
-})
-router.get('/apartment', (req, res) => {
-  res.render('app/client/apartments');
-})
-router.get('/detail', (req, res) => {
-  res.render('app/client/apartment-detail');
+router.get('/table_user', (req, res) => {
+  res.render('app/admin/category/user');
 })
 
 // LOGIN
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('app/admin/category/login');
 })
 
 router.post('/login', (req, res) => {

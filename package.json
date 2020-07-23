@@ -22,7 +22,7 @@
     "firebase": "^7.16.1",
     "local": "^0.3.3",
     "mongodb": "^3.5.9",
-    "mongoose": "^5.9.18",
+    "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "pug": "^3.0.0"

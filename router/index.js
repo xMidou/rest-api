@@ -23,10 +23,13 @@ router.get('/apartment', (req, res) => {
 router.get('/detail', (req, res) => {
   res.render('app/client/apartment-detail');
 })
+router.get('/all-apart', (req, res) => {
+  res.render('app/client/browse_apart');
+})
 
 // LOGIN
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('app/client/login');
 })
 
 router.post('/login', (req, res) => {
@@ -35,7 +38,7 @@ router.post('/login', (req, res) => {
 
 // Register
 router.get('/register', (req, res) => {
-  res.render('register');
+  res.render('app/client/register');
 })
 router.post('/register', (req, res) => {
   console.log(req.body);

@@ -8606,7 +8606,9 @@ h6 {
 
 p {
   font-size: 0.875rem; }
-
+.width_td{
+  max-width: 40px;
+}
 .display-1 {
   font-size: 3.75rem; }
   @media (max-width: 991px) {
@@ -8827,7 +8829,7 @@ pre {
 .table th img:not(.thumb-image) {
   width: 35px;
   min-width: 35px;
-  height: 35px; }
+   }
 
 .img-curved {
   border-radius: 10px; }

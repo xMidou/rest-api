@@ -5,6 +5,15 @@ $("form").submit(function(e){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       window.location.replace("/");
+      $.ajax({
+        type: "POST",
+        url: '/login',
+        data: {
+          email,
+          password
+        },
+        
+      });
     })
     .catch(function(error) {
         // Handle Errors here.

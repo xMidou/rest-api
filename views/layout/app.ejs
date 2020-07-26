@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-        <%-body -%>
+        
 
         <script src="/javascripts/jquery-3.3.1.min.js"></script>
         <script src="/javascripts/jquery-migrate-3.0.1.min.js"></script>
@@ -39,8 +39,37 @@
         <script src="/javascripts/aos.js"></script>
         <script src="/javascripts/circleaudioplayer.js"></script>
         <script src="/javascripts/main.js"></script>
-        
+        <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
 
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script>
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAO0DngcVLBLaaDdWnBlHm05FMx3dOQbRE",
+            authDomain: "ttcn-21561.firebaseapp.com",
+            databaseURL: "https://ttcn-21561.firebaseio.com",
+            projectId: "ttcn-21561",
+            storageBucket: "ttcn-21561.appspot.com",
+            messagingSenderId: "16636788503",
+            appId: "1:16636788503:web:bd554dbe08fc0147910152",
+            measurementId: "G-Q03RZHMYQL"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+        </script>
+        <%-body -%>
     
     </body>
         <% include partials/footer %>

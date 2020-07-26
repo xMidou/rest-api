@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
+const session = require('express-session')
 const cors = require('cors');
 const logger = require('morgan');
 const engine = require('ejs-mate');
@@ -13,6 +13,7 @@ require('dotenv/config');
 
 app.engine('ejs', engine);
 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());

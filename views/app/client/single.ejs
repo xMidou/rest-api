@@ -20,8 +20,8 @@
         <div class="col-lg-8">
   
           <figure>
-            <img src="/images/hero_bg_1.jpg" alt="Image" class="img-fluid">
-            <figcaption>This is an image</figcaption>
+            <!-- <img src="/images/hero_bg_1.jpg" alt="Image" class="img-fluid"> -->
+            <figcaption id='id' value= <%= id %>></figcaption>
           </figure>
   
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil ratione dolores expedita id repudiandae
@@ -217,5 +217,21 @@
     </div>
   </div>
   </div>
-  </body>
-</html>
+  <script>
+    const id = $("#id").attr('value');
+    // console.log(id);
+    const docRef = db.collection("posts").doc(id);  
+    docRef.get().then(function(doc) {
+    if (doc.exists) {
+        // console.log("Document data:", doc.data());
+        $("figure")
+        .append(` <img src=${doc.data().downloadURL} alt="Image" class="img-fluid">`);
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });    
+  </script>
+</body>

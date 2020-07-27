@@ -1,28 +1,29 @@
 $("form").submit(function(e){
     e.preventDefault();
+    
     const firstName = $('#firstName').val();
     const lastName = $('#lastName').val();
     const email = $('#email').val();
-    const password = $('#password').val();
+    const password = md5($('#password').val());
     const rePassword = $('#rePassword').val();
     const phoneNumber = $('#phoneNumber').val();
     if (email.length < 4) {
         alert('Please enter an email address.');
     }
-    if (password.length < 4) {
+    if ($('#password').val().length < 4) {
         alert('Please enter a password.');
     }
-    if (password != rePassword) {
+    if ($('#password').val() != rePassword) {
         alert('Please enter password again');
     }
-    
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
-        db.collection("user").add({
+    .then(async () => {
+        console.log('111111111111111')
+        await db.collection("user").add({
             firstName: firstName,
             lastName: lastName,
             email: email,
-            password: password,
+            password: md5(password),
             phoneNumber: phoneNumber,
         })
         .then(function(docRef) {
@@ -31,7 +32,7 @@ $("form").submit(function(e){
         .catch(function(error) {
             console.error("Error adding document: ", error);
         });
-        window.location.replace("/login");
+        await window.location.replace("/login");
     })
     .catch((error) => {
         // Handle Errors here.
@@ -44,5 +45,4 @@ $("form").submit(function(e){
           alert(errorMessage);
         }
     });
-    alert('good')
 });

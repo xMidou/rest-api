@@ -28,23 +28,30 @@ router.get('/detail', (req, res) => {
 router.get('/register', (req, res) => {
   res.render('app/client/register');
 })
+router.get('/all-apart', (req, res) => {
+  res.render('app/client/browse_apart');
+})
+
+// LOGIN
 router.get('/login', (req, res) => {
   res.render('app/client/login');
 })
 router.post('/login', (req, res) => {
   // console.log(req.body)
+  console.log('aaaaaaaaaaaa')
   req.session.email = req.body.email;
   req.session.password = req.body.password;
   console.log(req.session);
+  res.redirect('/');
 })
 
 // Register
-// router.get('/register', (req, res) => {
-//   res.render('register');
-// })
-// router.post('/register', (req, res) => {
-//   console.log(req.body);
-//   res.redirect('/register');
-// })
+router.get('/register', (req, res) => {
+  res.render('app/client/register');
+})
+router.post('/register', (req, res) => {
+  console.log(req.body);
+  res.redirect('/register');
+})
 
 module.exports = router;

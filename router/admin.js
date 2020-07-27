@@ -17,6 +17,9 @@ router.get('/product', (req, res) => {
 router.get('/post', (req, res) => {
   res.render('app/admin/category/post', {firstName: req.session.firstName, lastName: req.session.lastName});
 })
+router.get('/newpost', (req, res) => {
+  res.render('app/admin/category/new_post');
+})
 router.get('/contact', (req, res) => {
   res.render('app/admin/category/contact', {firstName: req.session.firstName, lastName: req.session.lastName});
 })

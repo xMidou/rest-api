@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', (req, res) => {
-  res.render('app/admin/category/dashboard', {firstName: req.session.firstName, lastName: req.session.lastName});
+if(!req.session.email) res.redirect('/admin/login')
+  else res.render('app/admin/category/dashboard', {firstName: req.session.firstName, lastName: req.session.lastName});
 })
 router.get('/create', (req, res) => {
   res.render('app/admin/create');
@@ -17,8 +18,9 @@ router.get('/product', (req, res) => {
 router.get('/post', (req, res) => {
   res.render('app/admin/category/post', {firstName: req.session.firstName, lastName: req.session.lastName});
 })
+
 router.get('/newpost', (req, res) => {
-  res.render('app/admin/category/new_post');
+  res.render('app/admin/category/new_post', {firstName: req.session.firstName, lastName: req.session.lastName});
 })
 router.get('/contact', (req, res) => {
   res.render('app/admin/category/contact', {firstName: req.session.firstName, lastName: req.session.lastName});
